@@ -7,7 +7,7 @@
                 class="w-11/12 space-y-5 overflow-auto rounded-md border border-slate-100 bg-white p-5 shadow-md shadow-slate-300">
                 <div class="flex items-center justify-between">
                     <a href="/buku">
-                        Kembali
+                        <i class="fa-solid fa-arrow-left"></i>
                     </a>
                     <button type="submit"
                         class="flex w-min items-center gap-1 whitespace-nowrap rounded-md bg-green-500 px-10 py-3 text-sm font-semibold text-white active:scale-95">
@@ -24,28 +24,36 @@
                 </div>
                 <div class="flex flex-col gap-1">
                     <label for="judul_buku">Judul Buku</label>
-                    <input type="text" id="judul_buku" name="judul_buku" autofocus required
+                    <input type="text" id="judul_buku" value="{{ old('judul_buku') }}" name="judul_buku" autofocus
+                        required
                         class="h-min rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-700 outline-none focus:ring focus:ring-blue-500"
                         placeholder="Masukkan judul buku">
                 </div>
                 <div class="flex flex-col gap-1">
                     <label for="penulis">Penulis</label>
-                    <input type="text" id="penulis" name="penulis" required
+                    <input type="text" id="penulis" value="{{ old('penulis') }}" name="penulis" required
                         class="h-min rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-700 outline-none focus:ring focus:ring-blue-500"
                         placeholder="Masukkan penulis buku">
                 </div>
                 <div class="flex flex-col gap-1">
                     <label for="penerbit">Penerbit</label>
-                    <input type="text" id="penerbit" name="penerbit" required
+                    <input type="text" id="penerbit" value="{{ old('penerbit') }}" name="penerbit" required
                         class="h-min rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-700 outline-none focus:ring focus:ring-blue-500"
                         placeholder="Masukkan penerbit buku">
                 </div>
                 <div class="flex gap-4">
                     <div class="flex w-full flex-col gap-1">
                         <label for="jumlah_halaman">Jumlah halaman</label>
-                        <input type="number" id="jumlah_halaman" name="jumlah_halaman"
+                        <input type="number" id="jumlah_halaman" value="{{ old('jumlah_halaman') }}"
+                            name="jumlah_halaman"
                             class="h-min rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-700 outline-none focus:ring focus:ring-blue-500"
                             placeholder="Masukkan jumlah halaman buku">
+                    </div>
+                    <div class="flex w-full flex-col gap-1">
+                        <label for="stok">Stok</label>
+                        <input type="number" id="stok" value="{{ old('stok') }}" name="stok"
+                            class="h-min rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-700 outline-none focus:ring focus:ring-blue-500"
+                            placeholder="Masukkan stok buku">
                     </div>
                     <div class="flex w-full flex-col gap-1">
                         <label for="kategori">Kategori Buku</label>

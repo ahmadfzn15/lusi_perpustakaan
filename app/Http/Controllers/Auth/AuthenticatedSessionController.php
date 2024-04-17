@@ -9,6 +9,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use Alert;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -23,13 +24,26 @@ class AuthenticatedSessionController extends Controller
     /**
      * Handle an incoming authentication request.
      */
-    public function store(LoginRequest $request): RedirectResponse
+    public function store(Request $request): RedirectResponse
     {
-        $request->authenticate();
+        $request->validate([
+            'email' => ['required', 'string', 'email'],
+            'password' => ['required', 'string'],
+        ]);
+
+        if (!Auth::attempt($request->only('email', 'password'))) {
+            toast('Login gagal!','error');
+            return redirect()->back();
+        }
 
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        toast('Login berhasil!','success');
+        if (auth()->user()->role != "peminjam") {
+            return redirect("/");
+        } else {
+            return redirect("/buku");
+        }
     }
 
     /**
@@ -37,12 +51,18 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request): RedirectResponse
     {
-        Auth::guard('web')->logout();
+        try {
+            Auth::guard('web')->logout();
 
-        $request->session()->invalidate();
+            Alert::success('Success', 'Logout berhasil');
+            $request->session()->invalidate();
 
-        $request->session()->regenerateToken();
+            $request->session()->regenerateToken();
 
-        return redirect('/');
+            return redirect('/login');
+        } catch (\Throwable $th) {
+            Alert::error('Error', 'Logout gagal');
+            return redirect()->back();
+        }
     }
 }

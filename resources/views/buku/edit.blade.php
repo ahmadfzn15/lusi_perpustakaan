@@ -21,7 +21,7 @@
                         id="imgCover">
                         <img src="{{ asset('storage/img/' . $data->cover) }}" alt="">
                     </div>
-                    <input id="cover" type="file" name="cover" class="">
+                    <input id="cover" type="file" name="cover">
                 </div>
                 <div class="flex flex-col gap-1">
                     <label for="judul_buku">Judul Buku</label>

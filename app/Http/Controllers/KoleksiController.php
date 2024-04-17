@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Koleksi;
+use Alert;
 
 class KoleksiController extends Controller
 {
@@ -17,21 +18,34 @@ class KoleksiController extends Controller
 
     public function store(Request $request)
     {
-        $koleksi = Koleksi::where('id_buku', $request->id_buku)->where('id_user', auth()->user()->id)->get();
-        if (!$koleksi->count()) {
-            Koleksi::create([
-                "id_user" => auth()->user()->id,
-                "id_buku" => $request->id_buku,
-            ]);
+        try {
+            $koleksi = Koleksi::where('id_buku', $request->id_buku)->where('id_user', auth()->user()->id)->get();
+            if (!$koleksi->count()) {
+                Koleksi::create([
+                    "id_user" => auth()->user()->id,
+                    "id_buku" => $request->id_buku,
+                ]);
 
+            }
+
+            Alert::success('Success', 'Buku berhasil ditambahkan kedalam koleksi');
+            return redirect('/buku');
+        } catch (\Throwable $th) {
+            Alert::error('Error', 'Buku gagal ditambahkan kedalam koleksi');
+            return redirect()->back();
         }
-        return redirect('/buku');
     }
 
     public function destroy(string $id)
     {
-        Koleksi::findOrFail(base64_decode($id))->delete();
+        try {
+            Koleksi::findOrFail(base64_decode($id))->delete();
 
-        return redirect('/koleksi');
+            Alert::success('Success', 'Buku berhasil dihapus dari koleksi');
+            return redirect()->back();
+        } catch (\Throwable $th) {
+            Alert::error('Error', 'Buku gagal dihapus dari koleksi');
+            return redirect()->back();
+        }
     }
 }

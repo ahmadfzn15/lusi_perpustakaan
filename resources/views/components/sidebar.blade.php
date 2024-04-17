@@ -3,11 +3,13 @@
         <h1 class="text-center text-lg font-semibold text-slate-700">Lusi Gramedia</h1>
     </div>
     <div class="flex w-full flex-col items-start gap-1 py-5">
-        <a href="/"
-            class="{{ Request::is('/') ? 'bg-slate-200' : '' }} flex w-full items-center gap-2 rounded-md p-3 hover:bg-slate-200">
-            <i class="fa-solid fa-house-user text-slate-700"></i>
-            <h1>Beranda</h1>
-        </a>
+        @cannot('peminjam')
+            <a href="/"
+                class="{{ Request::is('/') ? 'bg-slate-200' : '' }} flex w-full items-center gap-2 rounded-md p-3 hover:bg-slate-200">
+                <i class="fa-solid fa-house-user text-slate-700"></i>
+                <h1>Beranda</h1>
+            </a>
+        @endcannot
         <a href="/buku"
             class="{{ Request::is('buku*') ? 'bg-slate-200' : '' }} flex w-full items-center gap-2 rounded-md p-3 hover:bg-slate-200">
             <i class="fa-solid fa-book"></i>

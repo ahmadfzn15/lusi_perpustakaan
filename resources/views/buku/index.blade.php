@@ -17,7 +17,7 @@
                 <a href="/buku/create"
                     class="flex w-min items-center gap-1 whitespace-nowrap rounded-md bg-green-500 px-3 py-2 text-sm text-white active:scale-95"><i
                         class="fas fa-add"></i>
-                    <h1>Tambah Data</h1>
+                    <h1>Tambah Buku</h1>
                 </a>
                 <table class="w-full overflow-hidden rounded-md ring-1 ring-slate-300">
                     <thead>

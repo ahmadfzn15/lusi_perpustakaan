@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Ulasan;
+use Alert;
 
 class UlasanController extends Controller
 {
@@ -23,12 +24,18 @@ class UlasanController extends Controller
 
     public function store(Request $request)
     {
-        Ulasan::create([
-            "id_user" => auth()->user()->id,
-            "id_buku" => base64_decode($request->id_buku),
-            "ulasan" => $request->ulasan,
-        ]);
+        try {
+            Ulasan::create([
+                "id_user" => auth()->user()->id,
+                "id_buku" => base64_decode($request->id_buku),
+                "ulasan" => $request->ulasan,
+            ]);
 
-        return redirect('/peminjaman');
+            Alert::success('Success', 'Terima kasih telah memberikan ulasan.');
+            return redirect()->back();
+        } catch (\Throwable $th) {
+            Alert::error('Error', 'Gagal memberikan ulasan silahkan coba lagi.');
+            return redirect()->back();
+        }
     }
 }

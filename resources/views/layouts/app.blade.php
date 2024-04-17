@@ -17,6 +17,7 @@
 </head>
 
 <body class="min-h-screen w-screen overflow-x-hidden bg-slate-200 font-sans text-gray-900 antialiased">
+    @include('sweetalert::alert')
     @include('components.sidebar')
     <div class="relative ml-56 h-full w-[calc(100vw-14rem)]">
         <div class="{{ Request::is('/') ? ' h-[50vh]' : 'h-[30vh]' }} flex justify-between bg-blue-600 px-10 py-7">

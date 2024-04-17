@@ -15,7 +15,10 @@ return new class extends Migration
             $table->id();
             $table->foreignId('id_user')->constrained('users');
             $table->foreignId('id_buku')->constrained('buku');
+            $table->integer('telat')->default(1);
             $table->integer('total_denda');
+            $table->date('tanggal_bayar')->nullable();
+            $table->boolean('status')->nullable()->dafault(false);
             $table->timestamps();
         });
     }

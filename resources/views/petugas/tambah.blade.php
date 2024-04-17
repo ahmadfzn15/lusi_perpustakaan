@@ -7,7 +7,7 @@
                 class="w-11/12 space-y-5 overflow-auto rounded-md border border-slate-100 bg-white p-5 shadow-md shadow-slate-300">
                 <div class="flex items-center justify-between">
                     <a href="/petugas">
-                        Kembali
+                        <i class="fa-solid fa-arrow-left"></i>
                     </a>
                     <button type="submit"
                         class="flex w-min items-center gap-1 whitespace-nowrap rounded-md bg-green-500 px-10 py-3 text-sm font-semibold text-white active:scale-95">

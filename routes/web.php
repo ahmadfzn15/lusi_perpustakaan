@@ -12,11 +12,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::resource('/petugas', PetugasController::class);
+    Route::controller(PageController::class)->group(function () {
+        Route::get('/', 'index')->name('dashboard');
+    });
 });
 
 Route::middleware(['auth'])->group(function () {
     Route::controller(PageController::class)->group(function () {
-        Route::get('/', 'index')->name('dashboard');
         Route::get('/profil', 'profil')->name('profile');
     });
 

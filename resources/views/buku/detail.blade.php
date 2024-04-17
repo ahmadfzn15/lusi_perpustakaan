@@ -7,7 +7,7 @@
             <div
                 class="w-11/12 space-y-5 overflow-auto rounded-md border border-slate-100 bg-white p-5 shadow-md shadow-slate-300">
                 <a href="/buku">
-                    Kembali
+                    <i class="fa-solid fa-arrow-left"></i>
                 </a>
                 <div class="grid grid-cols-3 gap-5">
                     <div class="col-span-1 overflow-hidden">

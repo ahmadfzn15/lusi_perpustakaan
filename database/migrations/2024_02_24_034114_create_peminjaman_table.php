@@ -17,8 +17,9 @@ return new class extends Migration
             $table->date('tanggal_peminjaman');
             $table->date('tanggal_pengembalian')->nullable();
             $table->integer('jumlah_buku');
-            $table->integer('durasi_pinjam')->comment('Satuan hari');
-            $table->date('jatuh_tempo');
+            $table->integer('durasi_peminjaman')->nullable()->comment('Satuan hari');
+            $table->date('batas_peminjaman')->nullable();
+            $table->boolean('jatuh_tempo')->nullable()->default(false);
             $table->enum('status', ['Dipinjam', 'Dikembalikan'])->default('Dipinjam');
             $table->boolean('status_peminjaman')->default(false);
             $table->boolean('status_pengembalian')->default(false);

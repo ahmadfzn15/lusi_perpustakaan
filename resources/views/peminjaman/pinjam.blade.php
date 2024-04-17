@@ -7,7 +7,7 @@
             <div
                 class="w-11/12 space-y-5 overflow-auto rounded-md border border-slate-100 bg-white p-5 shadow-md shadow-slate-300">
                 <a href="/buku">
-                    Kembali
+                    <i class="fa-solid fa-arrow-left"></i>
                 </a>
                 <div class="grid grid-cols-3 gap-5">
                     <div class="col-span-1 overflow-hidden">
@@ -22,7 +22,7 @@
                         <div class="space-y-4">
                             <div class="flex flex-col gap-2">
                                 <h1 class="text-sm">Jumlah Buku</h1>
-                                <input type="number" name="jumlah" required
+                                <input type="number" name="jumlah_buku" required autofocus
                                     class="h-min w-full rounded-md border border-slate-300 bg-white py-3 text-sm text-slate-700 outline-none">
                                 <h1 class="self-end">Stok {{ $data->stok }}</h1>
                             </div>
