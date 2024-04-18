@@ -1,8 +1,14 @@
 {
     "name": "laravel/laravel",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
-    "keywords": ["laravel", "framework"],
+    "description": "The Library App.",
+    "keywords": [
+        "app",
+        "library",
+        "book",
+        "perpustakaan",
+        "buku"
+    ],
     "license": "MIT",
     "require": {
         "php": "^8.1",

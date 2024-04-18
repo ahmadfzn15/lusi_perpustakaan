@@ -4,11 +4,11 @@
     </div>
     <div class="flex w-full flex-col items-start gap-1 py-5">
         @cannot('peminjam')
-            <a href="/"
-                class="{{ Request::is('/') ? 'bg-slate-200' : '' }} flex w-full items-center gap-2 rounded-md p-3 hover:bg-slate-200">
-                <i class="fa-solid fa-house-user text-slate-700"></i>
-                <h1>Beranda</h1>
-            </a>
+        <a href="/"
+            class="{{ Request::is('/') ? 'bg-slate-200' : '' }} flex w-full items-center gap-2 rounded-md p-3 hover:bg-slate-200">
+            <i class="fa-solid fa-house-user text-slate-700"></i>
+            <h1>Beranda</h1>
+        </a>
         @endcannot
         <a href="/buku"
             class="{{ Request::is('buku*') ? 'bg-slate-200' : '' }} flex w-full items-center gap-2 rounded-md p-3 hover:bg-slate-200">
@@ -16,24 +16,31 @@
             <h1>Buku</h1>
         </a>
         @can('peminjam')
-            <a href="/koleksi"
-                class="{{ Request::is('koleksi*') ? 'bg-slate-200' : '' }} flex w-full items-center gap-2 rounded-md p-3 hover:bg-slate-200">
-                <i class="fa-solid fa-heart"></i>
-                <h1>Koleksi</h1>
-            </a>
+        <a href="/koleksi"
+            class="{{ Request::is('koleksi*') ? 'bg-slate-200' : '' }} flex w-full items-center gap-2 rounded-md p-3 hover:bg-slate-200">
+            <i class="fa-solid fa-heart"></i>
+            <h1>Koleksi</h1>
+        </a>
         @endcan
         @can('admin')
-            <a href="/petugas"
-                class="{{ Request::is('petugas*') ? 'bg-slate-200' : '' }} flex w-full items-center gap-2 rounded-md p-3 hover:bg-slate-200">
-                <i class="fas fa-user"></i>
-                <h1>Petugas</h1>
-            </a>
-            <a href="/ulasan"
-                class="{{ Request::is('ulasan*') ? 'bg-slate-200' : '' }} flex w-full items-center gap-2 rounded-md p-3 hover:bg-slate-200">
-                <i class="fas fa-user"></i>
-                <h1>Ulasan</h1>
-            </a>
+        <a href="/petugas"
+            class="{{ Request::is('petugas*') ? 'bg-slate-200' : '' }} flex w-full items-center gap-2 rounded-md p-3 hover:bg-slate-200">
+            <i class="fas fa-user"></i>
+            <h1>Petugas</h1>
+        </a>
         @endcan
+        @cannot('peminjam')
+        <a href="/kategori"
+            class="{{ Request::is('kategori*') ? 'bg-slate-200' : '' }} flex w-full items-center gap-2 rounded-md p-3 hover:bg-slate-200">
+            <i class="fas fa-book"></i>
+            <h1>Kategori</h1>
+        </a>
+        <a href="/ulasan"
+            class="{{ Request::is('ulasan*') ? 'bg-slate-200' : '' }} flex w-full items-center gap-2 rounded-md p-3 hover:bg-slate-200">
+            <i class="fas fa-user"></i>
+            <h1>Ulasan</h1>
+        </a>
+        @endcannot
         <a href="/peminjaman"
             class="{{ Request::is('peminjaman*') ? 'bg-slate-200' : '' }} flex w-full items-center gap-2 rounded-md p-3 hover:bg-slate-200">
             <i class="fas fa-book-open-reader"></i>

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\BukuController;
+use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\PetugasController;
 use App\Http\Controllers\PeminjamanController;
 use App\Http\Controllers\PageController;
@@ -19,10 +20,12 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::controller(PageController::class)->group(function () {
-        Route::get('/profil', 'profil')->name('profile');
+        Route::get('/profil', 'profil');
+        Route::put('/profil', 'profilUpdate');
     });
 
     Route::resource('/buku', BukuController::class);
+    Route::resource('/kategori', KategoriController::class);
     Route::resource('/peminjaman', PeminjamanController::class);
     Route::resource('/koleksi', KoleksiController::class);
 

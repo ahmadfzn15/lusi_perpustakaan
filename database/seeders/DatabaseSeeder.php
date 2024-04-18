@@ -26,19 +26,49 @@ class DatabaseSeeder extends Seeder
         User::create([
             "nama" => "lusi",
             "email" => "lusi@gmail.com",
-            "password" => Hash::make("123123123"),
+            "jenis_kelamin" => "Perempuan",
+            "password" => Hash::make("123"),
             "role" => "admin"
         ]);
 
         User::create([
-            "nama" => "ahmad",
-            "email" => "ahmad@gmail.com",
-            "password" => Hash::make("123123123"),
+            "nama" => "petugas",
+            "email" => "petugas@gmail.com",
+            "jenis_kelamin" => "Laki-laki",
+            "password" => Hash::make("123"),
+            "role" => "petugas"
+        ]);
+
+        User::create([
+            "nama" => "user",
+            "email" => "user@gmail.com",
+            "jenis_kelamin" => "Laki-laki",
+            "password" => Hash::make("123"),
             "role" => "peminjam"
         ]);
 
         Kategori::create([
-            'kategori_buku' => 'Bucin'
+            'kategori_buku' => 'Romansa'
+        ]);
+
+        Kategori::create([
+            'kategori_buku' => 'Aksi'
+        ]);
+
+        Kategori::create([
+            'kategori_buku' => 'Religi'
+        ]);
+
+        Kategori::create([
+            'kategori_buku' => 'Horor'
+        ]);
+
+        Kategori::create([
+            'kategori_buku' => 'Komedi'
+        ]);
+
+        Kategori::create([
+            'kategori_buku' => 'Drama'
         ]);
 
         Buku::create([

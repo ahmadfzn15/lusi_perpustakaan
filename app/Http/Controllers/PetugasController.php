@@ -36,6 +36,7 @@ class PetugasController extends Controller
                 "nama" => $request->nama,
                 "email" => $request->email,
                 "no_tlp" => $request->no_tlp,
+                "jenis_kelamin" => $request->jenis_kelamin,
                 "password" => Hash::make($request->password),
                 "role" => 'petugas',
             ]);
@@ -69,6 +70,7 @@ class PetugasController extends Controller
                 "nama" => $request->nama,
                 "email" => $request->email,
                 "no_tlp" => $request->no_tlp,
+                "jenis_kelamin" => $request->jenis_kelamin,
             ]);
 
             Alert::success('Success', 'Petugas berhasil diubah');

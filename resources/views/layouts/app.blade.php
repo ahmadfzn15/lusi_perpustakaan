@@ -25,8 +25,12 @@
             <div class="flex gap-5">
                 {{ $search ?? '' }}
                 <a href="/profil">
-                    <div class="flex h-12 w-12 items-center justify-between overflow-hidden rounded-full">
-                        <img src="/img/lusii.jpeg" alt="">
+                    <div class="flex items-center gap-2">
+                        <h1 class="text-lg text-white">{{ auth()->user()->nama }}</h1>
+                        <div class="flex h-12 w-12 items-center justify-between overflow-hidden rounded-full">
+                            <img src="{{ auth()->user()->foto ? asset('storage/img/' . auth()->user()->foto) : asset('storage/img/user.png') }}"
+                                alt="">
+                        </div>
                     </div>
                 </a>
             </div>

@@ -14,7 +14,7 @@
                         <h1>Simpan</h1>
                     </button>
                 </div>
-                <div class="flex flex-col gap-1">
+                <div class="flex flex-col gap-4">
                     <label for="judul_buku">Foto Sampul</label>
                     <div class="min-h-60 flex w-60 items-center justify-center overflow-hidden rounded-md ring ring-slate-300"
                         id="imgCover">
@@ -60,7 +60,7 @@
                         <select name="id_kategori" id="kategori"
                             class="h-min rounded-md border border-slate-300 bg-white px-3 py-2 text-sm text-slate-700 outline-none focus:ring focus:ring-blue-500">
                             @foreach ($kategori as $item)
-                                <option value="{{ $item->id }}">{{ $item->kategori_buku }}</option>
+                            <option value="{{ $item->id }}">{{ $item->kategori_buku }}</option>
                             @endforeach
                         </select>
                     </div>
