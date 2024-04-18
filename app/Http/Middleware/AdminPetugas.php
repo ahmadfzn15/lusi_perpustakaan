@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class Petugas
+class AdminPetugas
 {
     /**
      * Handle an incoming request.
@@ -15,7 +15,7 @@ class Petugas
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (auth()->guest() || $request->user()->role != 'petugas') {
+        if (auth()->guest() || $request->user()->role == 'peminjam') {
             abort(403);
         }
 

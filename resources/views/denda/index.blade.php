@@ -104,12 +104,11 @@
                             {{ $item->tanggal_bayar }}</td>
                         <td
                             class="flex items-center justify-center gap-2 whitespace-nowrap border border-slate-300 p-2 text-center">
-                            <form action="/ulasan/{{ base64_encode($item->id) }}" method="post">
-                                @method('delete')
+                            <form action="/denda/{{ base64_encode($item->id) }}/bayar" method="post">
                                 @csrf
-                                <button onclick="return confirm('Apakah yakin anda ingin menghapus ulasan ini?');"
-                                    type="submit" class="rounded-md bg-red-600 px-3 py-2 text-white">
-                                    <i class="fas fa-trash"></i>
+                                <button onclick="return confirm('Apakah yakin anda ingin membayar denda ini?');"
+                                    type="submit" class="rounded-md bg-blue-600 px-3 py-2 text-white">
+                                    <h1>Bayar</h1>
                                 </button>
                             </form>
                         </td>

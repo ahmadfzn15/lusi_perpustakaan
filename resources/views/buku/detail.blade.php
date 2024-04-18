@@ -13,33 +13,32 @@
                     <div class="col-span-1 overflow-hidden">
                         <img src="{{ asset('storage/img/' . $data->cover) }}" alt="" class="h-full w-full">
                     </div>
-                    <div class="col-span-2 flex flex-col justify-between">
+                    <div class="col-span-2 flex flex-col gap-4">
                         <div class="">
                             <h1 class="text-2xl">{{ $data->judul_buku }}</h1>
                             <h1 class="text-sm">Karya {{ $data->penulis }}</h1>
                             <h1 class="text-xs">Diterbitkan oleh {{ $data->penerbit }}</h1>
                         </div>
+                        <p class="first-letter:text-3xl font-light italic">{{ $data->sinopsis }}</p>
                     </div>
                 </div>
                 <div class="flex flex-col gap-3">
                     <h1>Ulasan Peminjam</h1>
                     @if ($ulasan->count())
-                        @foreach ($ulasan as $item)
-                            <div class="flex flex-col gap-2 rounded-md border border-slate-200 p-3">
-                                <div class="flex items-center gap-3">
-                                    <div
-                                        class="flex h-10 w-10 items-center justify-between overflow-hidden rounded-full">
-                                        <img src="{{ asset('storage/img/' . ($item->user->foto ?? 'user.png')) }}"
-                                            alt="">
-                                    </div>
-                                    <div class="flex flex-col justify-end">
-                                        <h1>{{ $item->user->nama }}</h1>
-                                        <h1 class="text-xs">{{ $item->created_at->diffForHumans() }}</h1>
-                                    </div>
-                                </div>
-                                <h1>{{ $item->ulasan }}</h1>
+                    @foreach ($ulasan as $item)
+                    <div class="flex flex-col gap-2 rounded-md border border-slate-200 p-3">
+                        <div class="flex items-center gap-3">
+                            <div class="flex h-10 w-10 items-center justify-between overflow-hidden rounded-full">
+                                <img src="{{ asset('storage/img/' . ($item->user->foto ?? 'user.png')) }}" alt="">
                             </div>
-                        @endforeach
+                            <div class="flex flex-col justify-end">
+                                <h1>{{ $item->user->nama }}</h1>
+                                <h1 class="text-xs">{{ $item->created_at->diffForHumans() }}</h1>
+                            </div>
+                        </div>
+                        <h1>{{ $item->ulasan }}</h1>
+                    </div>
+                    @endforeach
                     @else
                     @endif
                 </div>

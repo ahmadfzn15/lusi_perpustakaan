@@ -26,17 +26,16 @@ class PeminjamanController extends Controller
                     ]);
 
                     $id_buku = DetailPeminjaman::where('id_peminjaman', $data->id)->first()->id_buku;
-                    $telat = Carbon::now()->diffInDays($data->batas_waktu);
+                    $telat = Carbon::now()->diffInDays($data->batas_peminjaman);
                     Denda::create([
                         'id_user' => $data->id_user,
                         'id_buku' => $id_buku,
-                        'telat' => $telat ?? 1,
-                        'total_denda' => ($telat ?? 1) * 3000,
+                        'telat' => $telat,
+                        'total_denda' => $telat * 3000,
                     ]);
                 }
             });
         }
-
 
         return view('peminjaman.index', [
             "title" => "Peminjaman",
@@ -86,6 +85,7 @@ class PeminjamanController extends Controller
     public function destroy(string $id)
     {
         try {
+            DetailPeminjaman::where('id_peminjaman', base64_decode($id))->delete();
             Peminjaman::findOrFail(base64_decode($id))->delete();
 
             Alert::success('Success', 'Data peminjaman berhasil dihapus');

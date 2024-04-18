@@ -17,7 +17,7 @@
                         <div class="">
                             <h1 class="text-2xl">{{ $data->judul_buku }}</h1>
                             <h1 class="text-sm">Karya {{ $data->penulis }}</h1>
-                            <h1 class="text-xs">{{ $data->penerbit }}</h1>
+                            <h1 class="text-xs">Diterbitkan oleh {{ $data->penerbit }}</h1>
                         </div>
                         <div class="space-y-4">
                             <div class="flex flex-col gap-2">

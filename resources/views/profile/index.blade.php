@@ -16,11 +16,13 @@
                     </button>
                 </div>
                 <div class="grid grid-cols-3 gap-5">
-                    <div class="col-span-1 h-[300px]">
-                        <div class="w-full h-full">
-                            <img src="{{ asset('storage/img/' . auth()->user()->foto) }}" alt="" class="h-full w-full">
+                    <div class="col-span-1 flex flex-col gap-4">
+                        <div
+                            class="min-h-[300px] flex w-[300px] items-center justify-center overflow-hidden rounded-md ring ring-slate-300">
+                            <img src="{{ asset('storage/img/' . auth()->user()->foto) }}" alt="" class="h-full w-full"
+                                id="previewImage">
                         </div>
-                        <input type="file" name="foto">
+                        <input type="file" name="foto" id="foto" onchange="previewImages()">
                     </div>
                     <div class="col-span-1 flex flex-col gap-2">
                         <div class="flex flex-col">
@@ -43,4 +45,18 @@
             </div>
         </div>
     </form>
+
+    <script>
+        const previewImages = (e) => {
+                const input = document.getElementById('foto');
+                if (input.files && input.files[0]) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const preview = document.getElementById('previewImage');
+                        preview.src = e.target.result;
+                    }
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+    </script>
 </x-app-layout>

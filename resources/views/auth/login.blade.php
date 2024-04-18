@@ -15,6 +15,7 @@
                     placeholder="Masukkan password anda">
             </div>
             <button type="submit" class="w-full rounded-md bg-black p-4 font-semibold text-white">Masuk</button>
+            <a href="/register" class="self-start text-sm hover:underline">Belum Daftar? Daftar disini.</a>
         </div>
     </form>
 </x-auth-layout>

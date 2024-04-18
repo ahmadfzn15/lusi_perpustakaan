@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('penulis');
             $table->string('penerbit');
             $table->integer('jumlah_halaman')->nullable();
+            $table->text('sinopsis')->nullable();
             $table->integer('stok');
             $table->foreignId('id_kategori')->constrained('kategori');
             $table->boolean('status')->default(false);

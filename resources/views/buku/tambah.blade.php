@@ -18,9 +18,9 @@
                     <label for="judul_buku">Foto Sampul</label>
                     <div class="min-h-60 flex w-60 items-center justify-center overflow-hidden rounded-md ring ring-slate-300"
                         id="imgCover">
-                        <img src="" alt="">
+                        <img id="previewImage" src="" alt="">
                     </div>
-                    <input id="cover" type="file" name="cover" class="">
+                    <input id="cover" type="file" name="cover" class="" onchange="previewImages()">
                 </div>
                 <div class="flex flex-col gap-1">
                     <label for="judul_buku">Judul Buku</label>
@@ -68,4 +68,18 @@
             </div>
         </div>
     </form>
+
+    <script>
+        const previewImages = (e) => {
+            const input = document.getElementById('cover');
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const preview = document.getElementById('previewImage');
+                    preview.src = e.target.result;
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
 </x-app-layout>
